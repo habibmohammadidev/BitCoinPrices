@@ -5,13 +5,6 @@
 
 import SwiftUI
 
-private let detailDateFormatter: DateFormatter = {
-    let f = DateFormatter()
-    f.dateStyle = .long
-    f.timeStyle = .none
-    return f
-}()
-
 struct PriceDetailView: View {
     let row: PriceRow
 

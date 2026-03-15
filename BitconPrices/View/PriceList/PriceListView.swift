@@ -32,7 +32,7 @@ struct PriceRow: Identifiable, Equatable {
 
 /// Contract for the list screen's view model.
 /// Using a protocol lets the View stay testable by accepting a mock implementation.
-enum PriceListViewState: Equatable {
+enum PriceListViewState: Equatable, Sendable {
     case idle
     case loading
     case loaded([PriceRow])
