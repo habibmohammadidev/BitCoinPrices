@@ -41,7 +41,7 @@ Suggested commit order when building a feature from scratch:
 2. Domain models
 3. Networking layer
 4. Repository / data layer
-5. Formatter helpers
+5. Formatter helpers (`DateFormatter` extensions in `DateFormatterHelper.swift`, `NumberFormatter` extensions in `NumberFormatter.swift`)
 6. View + ViewModel
 7. Tests mocks
 8. Unit and integration tests
