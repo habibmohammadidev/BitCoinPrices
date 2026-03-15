@@ -9,8 +9,8 @@ An iOS app that displays Bitcoin prices in EUR — the current live price and a 
 ### 1. Clone the repo
 
 ```bash
-git clone <repo-url>
-cd BitconPrices
+git clone https://github.com/habibmohammadidev/BitCoinPrices.git
+cd BitCoinPrices
 ```
 
 ### 2. Add your CoinGecko API key
