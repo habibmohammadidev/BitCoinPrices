@@ -15,9 +15,9 @@ enum CoinGeckoEndpoint {
 
     // MARK: - URL construction
 
-    private static let baseURL = "https://api.coingecko.com/api/v3"
+    private nonisolated static let baseURL = "https://api.coingecko.com/api/v3"
 
-    var urlRequest: Result<URLRequest, BitcoinPriceError> {
+    nonisolated var urlRequest: Result<URLRequest, BitcoinPriceError> {
         var components = URLComponents(string: Self.baseURL)
 
         switch self {

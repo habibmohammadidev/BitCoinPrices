@@ -158,7 +158,7 @@ actor LiveBitcoinRepository: BitcoinRepository {
             cachedPrices.removeAll(keepingCapacity: true)
         }
 
-        let request = try await CoinGeckoEndpoint.historicalPrices(days: days).urlRequest.get()
+        let request = try CoinGeckoEndpoint.historicalPrices(days: days).urlRequest.get()
         let data = try await perform(request)
         let prices: [DailyPrice]
         do {
