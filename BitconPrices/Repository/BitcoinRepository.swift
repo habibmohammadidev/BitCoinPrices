@@ -110,6 +110,7 @@ actor LiveBitcoinRepository: BitcoinRepository {
             items.removeAll { Calendar.current.isDateInToday($0.date) }
             items.insert(today, at: 0)
         }
+        cachedPrices = items
         let todayError: BitcoinPriceError? = { if case .failure(let e) = current { return e }; return nil }()
         let historicalError: BitcoinPriceError? = { if case .failure(let e) = historical { return e }; return nil }()
         return PriceUpdate(
