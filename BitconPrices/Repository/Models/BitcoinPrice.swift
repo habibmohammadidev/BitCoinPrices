@@ -11,7 +11,7 @@ struct BitcoinPrice: Equatable {
 }
 
 /// The price entry for a single calendar day.
-struct DailyPrice: Identifiable, Equatable {
+struct DailyPrice: Equatable {
     let date: Date
     let eurPrice: Double
 
