@@ -69,11 +69,15 @@ actor RetryingNetworkClient: HttpDataTransport {
             let (data, response) = try await underlying.data(for: request)
 
             // If the server returns a retryable status and we have attempts left, retry.
-            if let http = response as? HTTPURLResponse,
-               retryableStatusCodes.contains(http.statusCode),
-               attemptsLeft > 0 {
-                try await backOff(attempt: policy.maxAttempts - attemptsLeft)
-                return try await attempt(request, attemptsLeft: attemptsLeft - 1)
+            if let http = response as? HTTPURLResponse {
+               if retryableStatusCodes.contains(http.statusCode),
+                attemptsLeft > 0 {
+                    try await backOff(attempt: policy.maxAttempts - attemptsLeft)
+                    return try await attempt(request, attemptsLeft: attemptsLeft - 1)
+                }
+                if !(200...299).contains(http.statusCode) {
+                    throw BitcoinPriceError.unknown
+                }
             }
 
             return (data, response)

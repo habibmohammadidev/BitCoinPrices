@@ -21,9 +21,7 @@ struct PriceDetailView: View {
             } header: {
                 Text("Bitcoin Price")
             } footer: {
-                if row.areLabelsBold {
-                    Text("Live price — refreshes every 60s on the list screen")
-                }
+                Text("Live price — refreshes every 60s on the list screen")
             }
         }
         .listStyle(.insetGrouped)
